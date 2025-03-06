@@ -3,25 +3,48 @@
 /* GENERAL */
 * {
     font-family: Inter;
-    z-index: 5;
 }
 
 body {
     min-height: 100vw;
     margin: 0;
     background-image: url("./img/background.jpg");
-    background-size: contain;
+    background-size: 100% 40rem;
     background-repeat: no-repeat;
 }
 
 .container {
     display: grid;
+    grid-auto-rows: max-content;
     grid-template-columns: 10% 1fr 10%;
     grid-template-areas: "side-l content side-r";
 }
 
 .contentWrapper {
     grid-area: content;
+    grid-row: auto;
+    position: relative;
+}
+
+.button {
+    --button-bg: #2a704f;
+    --button-fg: #f0f0f0;
+    --button-font-size: 1rem;
+    --button-shadow: 0;
+
+    padding: 0.5rem 1.2rem;
+    color: var(--button-fg);
+    background-color: var(--button-bg);
+    text-decoration: none;
+    font-weight: 300;
+    font-size: var(--button-font-size);
+    opacity: 0.8;
+    transition: 200ms ease-in-out;
+    box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, calc(0.5 * var(--button-shadow)));
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
 
@@ -69,15 +92,85 @@ header {
 }
 
 
+/* SECTION HERO */
+section.hero .contentWrapper {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+
+    .coffeeLogo {
+        position: relative;
+        display: block;
+        height: 21.75rem;
+        aspect-ratio: 1 / 1;
+        transform: translateY(1rem);
+    }
+
+    .titles {
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+
+        h1 {
+            margin: 0;
+            font-size: 4rem;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 200;
+        }
+
+        #demoButton {
+            --button-font-size: 1.2rem;
+            --button-shadow: 1;
+
+            display: inline-block;
+            margin-top: 2rem;
+        }
+    }
+}
+
+
+/* SECTION WHITE */
+section.white {
+    height: 1000px;
+    background-color: #ffffff;
+}
+
+
 /* MEDIA QUERIES */
 @media screen and (max-width: 1000px) {
     .container {
         grid-template-columns: 3% 1fr 3%;
     }
+
+    section.hero .contentWrapper {
+        gap: 2rem;
+    }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 790px) {
+
+    .container {
+        grid-template-columns: 1% 1fr 1%;
+    }
+
     header {
+        padding-bottom: 2rem;
+
+        .headerLogo {
+            font-size: 8rem;
+        }
+
+        ul {
+            margin-right: 2rem;
+        }
+
         li {
             float: none;
 
@@ -87,7 +180,28 @@ header {
         }
     }
 
-    .container {
-        grid-template-columns: 1% 1fr 1%;
+    section.hero .contentWrapper {
+        height: min-content;
+        gap: 3rem;
+
+        .coffeeLogo {
+            height: 12rem;
+            transform: scale(1.25) translateY(1rem);
+        }
+
+        .titles {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            #demoButton {
+                margin-top: 1rem;
+                --button-font-size: 1.1rem;
+            }
+        }
     }
 }
