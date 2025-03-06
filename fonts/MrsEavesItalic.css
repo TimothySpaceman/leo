@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Mrs Eaves';
+    src: local('Mrs Eaves Italic'), local('Mrs-Eaves-Italic'),
+        url('MrsEavesItalic.woff2') format('woff2'),
+        url('MrsEavesItalic.woff') format('woff'),
+        url('MrsEavesItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
