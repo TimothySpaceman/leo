@@ -65,6 +65,10 @@ header {
         text-decoration: none;
     }
 
+    .menuToggle {
+        display: none;
+    }
+
     ul {
         margin: 0;
         padding: 0;
@@ -155,7 +159,6 @@ section.white {
 }
 
 @media screen and (max-width: 790px) {
-
     .container {
         grid-template-columns: 1% 1fr 1%;
     }
@@ -163,19 +166,62 @@ section.white {
     header {
         padding-bottom: 2rem;
 
+        .contentWrapper {
+            align-items: center;
+        }
+
         .headerLogo {
             font-size: 8rem;
         }
 
+        nav {
+            position: relative;
+            margin-right: 1.5rem;
+        }
+
+        .menuToggle {
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            display: block;
+            color: #ffffff;
+            font-size: 2.5rem;
+            transition: 250ms ease-in-out;
+        }
+
+        .menuToggle:hover,
+        .menuToggle:has(+ ul:hover) {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
         ul {
-            margin-right: 2rem;
+            visibility: hidden;
+            position: absolute;
+            right: 0;
+            z-index: 500;
+            opacity: 0;
+            backdrop-filter: blur(0.4rem);
+            box-shadow: 0 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.5);
+            transition: visibility 0s, opacity 250ms ease;
+        }
+
+        ul:hover,
+        .menuToggle:hover+ul {
+            visibility: visible;
+            opacity: 1;
         }
 
         li {
             float: none;
 
             a {
-                padding: 0.5rem 1rem;
+                color: #101010;
+                background-color: rgba(255, 255, 255, 0.7);
+                padding: 0.5rem 2rem;
+                font-size: 2rem;
+            }
+
+            a:hover {
+                background-color: #ffffff;
             }
         }
     }
@@ -200,7 +246,7 @@ section.white {
 
             #demoButton {
                 margin-top: 1rem;
-                --button-font-size: 1.1rem;
+                --button-font-size: 1.5rem;
             }
         }
     }
