@@ -209,7 +209,7 @@ section.solutions .contentWrapper {
         grid-column: 5;
     }
 
-    .tab-label:hover > img {
+    .tab-label:hover>img {
         transform: translateY(-0.5rem);
     }
 
@@ -267,6 +267,21 @@ section.solutions .contentWrapper {
 
 
 /* MEDIA QUERIES */
+@media screen and (min-width: 1600px) {
+    section.solutions .contentWrapper {
+        article {
+            display: flex;
+            flex-direction: row-reverse;
+
+            .solution-pic {
+                display: block;
+                width: 45%;
+                height: auto;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 1100px) {
     .container {
         grid-template-columns: 3% 1fr 3%;
