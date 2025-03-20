@@ -267,8 +267,7 @@ section.solutions .contentWrapper {
 
 /* SECTION WHY */
 section.why {
-
-    box-shadow: inset 0 -0.3rem 0.3rem rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 -0.2rem 0.2rem rgba(0, 0, 0, 0.2);
 }
 
 section.why .contentWrapper {
@@ -308,6 +307,70 @@ section.why .contentWrapper {
     }
 }
 
+/* SECTION FORMS */
+section.forms .contentWrapper {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    form {
+        display: block;
+        width: calc(50% - 1rem);
+        padding: 0.25rem 2rem 1.25rem 2rem;
+        box-sizing: border-box;
+        border-radius: 0.5rem;
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 200;
+            /* line-height: 1rem; */
+            margin-bottom: 0.75rem;
+        }
+
+        input {
+            padding: 0.2rem 0.7rem;
+            font-size: 1rem;
+            outline: none;
+            border: none;
+            width: calc(50% - 6rem);
+            margin-right: 0.5rem;
+        }
+
+        input[type="submit"] {
+            --button-bg: rgba(0, 0, 0, 0.7);
+            --button-fg: #ffffff;
+            --button-font-size: 1rem;
+            --button-shadow: 0;
+            padding: 0.4rem 0.1rem;
+            width: 7rem;
+            outline: none;
+            border: none;
+            display: inline-block;
+            margin: 0;
+        }
+    }
+
+    .login {
+        background-color: #e67624;
+    }
+
+    .subscribe {
+        background-color: #01d4f3;
+
+        input[type="email"] {
+            padding: 0.2rem 0.7rem;
+            font-size: 1rem;
+            outline: none;
+            border: none;
+            width: calc(100% - 11rem);
+            margin-right: 2rem;
+        }
+    }
+}
+
 /* MEDIA QUERIES */
 @media screen and (min-width: 1600px) {
     section.solutions .contentWrapper {
@@ -335,6 +398,12 @@ section.why .contentWrapper {
         article {
             grid-column: 4;
         }
+    }
+
+    section.forms .contentWrapper {
+        margin-left: 10%;
+        margin-right: 10%;
+        gap: 5%;
     }
 }
 
@@ -381,6 +450,15 @@ section.why .contentWrapper {
 
         article {
             grid-column: 1;
+        }
+    }
+
+    section.forms .contentWrapper {
+        flex-direction: column;
+        gap: 2rem;
+
+        form {
+            width: 70%;
         }
     }
 }
@@ -496,6 +574,15 @@ section.why .contentWrapper {
 
         article .solution-pic {
             width: 100%;
+        }
+    }
+
+    section.forms .contentWrapper {
+        flex-direction: column;
+        gap: 2rem;
+
+        form {
+            width: calc(100% - 2rem);
         }
     }
 }
